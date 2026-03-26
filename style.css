@@ -56,6 +56,7 @@ section.allElems{
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
+    position: absolute;
 }
 
 .elem{
@@ -93,4 +94,16 @@ section.allElems{
     padding: 40px;
     font-size: 60px;
     display: none;
+    position: absolute;
+}
+
+.back{
+    position: absolute;
+    right: 5%;
+    background-color: red;
+    padding: 10px 11px;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
 }
