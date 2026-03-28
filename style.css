@@ -103,15 +103,115 @@ section.allElems{
 .back{
     position: absolute;
     right: 5%;
-    background-color: red;
-    padding: 10px 11px;
+    background-color: var(--pri);
+    padding: 15px 20px;
     border: none;
     border-radius: 10px;
     color: var(--fth);
+    cursor: pointer;
     font-size: 20px;
     font-weight: 700;
 }
 
 .back:active{
     scale: 0.9;
+}
+
+.todo-list-fullpage{
+    display: block;
+}
+
+.todo-list-fullpage h2{
+    font-size: 50px;
+}
+
+.todo-list-fullpage .todo-container{
+    height: 85%;
+    width: 100%;
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-list-fullpage .todo-container .addTask{
+    height: 100%;
+    width: 30%;
+    border-radius: 20px;
+     background-color: var(--tri);
+}
+
+
+.todo-list-fullpage .todo-container .addTask form{
+    padding: 30px;
+}
+
+.todo-list-fullpage .todo-container .addTask form input{
+    padding: 15px 25px;
+    width: 100%;
+    font-size: 28px;
+    background-color: var(--sec);
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+.todo-list-fullpage .todo-container .addTask form textarea{
+    padding: 15px 25px;
+    width: 100%;
+    font-size: 28px;
+    background-color: var(--sec);
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+.todo-list-fullpage .todo-container .addTask form button{
+    padding: 15px 25px;
+    width: 100%;
+    font-size: 28px;
+    background-color: var(--frh);
+    font-weight: 700;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    transform: all ease 0.3s;
+}
+
+.todo-list-fullpage .todo-container .addTask form button:active{
+    scale: 0.95;
+}
+
+.todo-list-fullpage .todo-container .allTask{
+    height: 100%;
+    width: 65%;
+    border-radius: 20px;
+     background-color: var(--tri);
+     padding: 30px;
+     overflow: auto;
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--pri);
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.task h5{
+    font-size: 30px;
+}
+
+.task button{
+    padding: 15px 20px;
+    background-color: green;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
 }
