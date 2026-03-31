@@ -117,9 +117,6 @@ section.allElems{
     scale: 0.9;
 }
 
-.todo-list-fullpage{
-    display: block;
-}
 
 .todo-list-fullpage h2{
     font-size: 50px;
@@ -204,6 +201,30 @@ section.allElems{
 
 .task h5{
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task details{
+    font-size: 18px;
+}
+
+.task h5 span{
+    background-color: red;
+    color: white;
+    padding: 4px 6px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.task h5 span .true{
+    opacity: 1;
+}
+
+.task h5 span .false{
+    opacity: 0;
+    display: none;
 }
 
 .task button{
@@ -214,4 +235,21 @@ section.allElems{
     font-weight: 700;
     border: none;
     border-radius: 10px;
+}
+
+.mark-imp{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    gap: 10px;
+}
+.mark-imp input{
+    scale: 1.7;
+    font-size: 16px;
+}
+
+.mark-imp label{
+    font-size: 20px;
 }
