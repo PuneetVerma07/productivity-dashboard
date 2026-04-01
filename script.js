@@ -80,14 +80,14 @@ function todoList() {
             }
         )
         renderTask();
-        
+
 
         taskInput.value = ''
         taskDetailsInput.value = ''
         taskCheckbox.checked = false
     })
 
-    
+
 
 
 
@@ -132,3 +132,25 @@ function dailyPlanner() {
 }
 
 // dailyPlanner();
+
+function motivationalQuote() {
+    let motivationQuoteContent = document.querySelector(".motivation-2 h1")
+    let motivationAuthor = document.querySelector(".motivation-3 h2")
+
+
+    async function fetchQuote() {
+        let response = await fetch("http://api.quotable.io/random")
+        let data = await response.json();
+
+        /* console.log(data.content)
+        console.log(data.author)
+ */
+        motivationQuoteContent.innerHTML = data.content
+        motivationAuthor.innerHTML = ` ~ ${data.author}`
+
+    }
+
+    fetchQuote();
+}
+
+motivationalQuote();
