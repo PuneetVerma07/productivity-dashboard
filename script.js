@@ -93,4 +93,42 @@ function todoList() {
 
 }
 
-todoList()
+// todoList()
+
+function dailyPlanner() {
+    let dayPlanner = document.querySelector(".day-planner")
+
+    let dayPlanData = JSON.parse(localStorage.getItem("dayPlanData")) || {}
+
+
+    let hours = Array.from({ length: 18 }, function (elem, idx) {
+        return `${6 + idx}:00 - ${7 + idx}:00`
+    })
+
+    let wholeDaySum = ''
+
+    hours.forEach((elem, idx) => {
+
+        let savedData = dayPlanData[idx] || ''
+        wholeDaySum += `<div class="day-planner-time">
+						<p>${elem}</p>
+						<input id=${idx} type="text" placeholder="..." value=${savedData}>
+					</div>`
+    })
+
+
+
+    dayPlanner.innerHTML = wholeDaySum
+
+    let dayPlannerInput = document.querySelectorAll(".day-planner input")
+
+    dayPlannerInput.forEach(function (elem) {
+        elem.addEventListener("input", function () {
+            dayPlanData[elem.id] = elem.value
+
+            localStorage.setItem("dayPlanData", JSON.stringify(dayPlanData))
+        })
+    })
+}
+
+// dailyPlanner();
