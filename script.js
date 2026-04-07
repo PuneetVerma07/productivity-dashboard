@@ -93,7 +93,7 @@ function todoList() {
 
 }
 
-// todoList()
+todoList()
 
 function dailyPlanner() {
     let dayPlanner = document.querySelector(".day-planner")
@@ -131,7 +131,7 @@ function dailyPlanner() {
     })
 }
 
-// dailyPlanner();
+dailyPlanner();
 
 function motivationalQuote() {
     let motivationQuoteContent = document.querySelector(".motivation-2 h1")
@@ -154,3 +154,77 @@ function motivationalQuote() {
 }
 
 motivationalQuote();
+
+function pomodoroTimer() {
+    let timer = document.querySelector(".pomo-timer h1")
+    let startBtn = document.querySelector(".pomo-timer .start-timer")
+    let pauseBtn = document.querySelector(".pomo-timer .pause-timer")
+    let resetBtn = document.querySelector(".pomo-timer .reset-timer")
+    let session = document.querySelector(".pomodoro-fullpage .session")
+
+    let totalSeconds = 25 * 60
+    let timerInterval = null
+    let isWorkSession = true
+
+    function updateTimer() {
+        let minutes = Math.floor(totalSeconds / 60)
+        let seconds = totalSeconds % 60;
+
+        console.log(minutes, seconds)
+
+        timer.innerHTML = `${String(minutes).padStart("2", "0")}:${String(seconds).padStart("2", "0")}`
+    }
+
+    function startTimer() {
+        clearInterval(timerInterval)
+
+        if (isWorkSession) {
+
+            timerInterval = setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--
+                    updateTimer();
+                } else {
+                    isWorkSession = false
+                    clearInterval(timerInterval)
+                    timer.innerHTML = "05:00"
+                    session.innerHTML = "Take a Break";
+                    session.style.backgroundColor = 'var(--tri)'
+                    totalSeconds = 5 * 60;
+                }
+            }, 1000)
+        } else {
+
+
+            timerInterval = setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--
+                    updateTimer();
+                } else {
+                    isWorkSession = false;
+                    clearInterval(timerInterval)
+                    timer.innerHTML = '25:00'
+                    session.innerHTML = 'Work Session'
+                    session.style.backgroundColor = 'var(--pri)'
+                    totalSeconds = 25 * 60;
+                }
+            }, 1000)
+        }
+    }
+
+    function pauseTimer() {
+        clearInterval(timerInterval)
+    }
+
+    function resetTimer() {
+        clearInterval(timerInterval)
+        totalSeconds = 25 * 60
+        updateTimer();
+    }
+
+    startBtn.addEventListener("click", startTimer)
+    pauseBtn.addEventListener("click", pauseTimer)
+    resetBtn.addEventListener("click", resetTimer)
+}
+
+pomodoroTimer();
