@@ -244,7 +244,7 @@ function weatherFunctionality() {
     let data = null;
 
     async function weatherApiCall() {
-        let response = await fetch(`http://localhost:5000/weather?city=${city}`)
+        let response = await fetch(`https://productivity-dashboard-abp8.onrender.com/weather?city=${city}`)
         data = await response.json()
 
         header2Temp.innerHTML = `${data.current.temp_c}°C`
